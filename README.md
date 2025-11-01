@@ -1,4 +1,5 @@
 # FlowGuard – Intelligent Log & Metrics Aggregator
+<img width="1576" height="935" alt="flowguard_dashboard" src="https://github.com/user-attachments/assets/4c379421-d0dc-4473-909e-d3d9284d0d3e" />
 
 FlowGuard ingests logs and metrics from distributed services, classifies and tags their severity, aggregates KPIs (error rate, p95 latency, throughput), detects anomalies, stores everything for querying, and surfaces alerts alongside a rich dashboard.
 
@@ -87,6 +88,25 @@ This streams synthetic logs and metrics into the local API, populating the dashb
 - `GET /api/kpis` – chart-ready KPIs
 - `GET /api/alerts` – recent alerts
 - `POST /api/test-alert` – send synthetic alert across configured channels
+
+## Screenshots
+Screenshot 1
+<img width="1576" height="935" alt="flowguard_dashboard" src="https://github.com/user-attachments/assets/66b4c674-7059-4623-861c-55737ddab1d2" />
+1. Dashboard Overview
+Unified KPIs and performance charts for error rate, latency, and throughput.
+Monitor real-time trends across services with interactive charts and anomaly highlights powered by IsolationForest detection.
+
+Screenshot 2
+<img width="1578" height="935" alt="flowguard_explore" src="https://github.com/user-attachments/assets/38edd5e4-d174-4b54-b361-44ab6c28a831" />
+2. Explorer Screen
+Search and filter logs by service, severity, or message content.
+Navigate high-volume log data efficiently with virtualized tables and color-coded severity levels for quick triage.
+
+Screenshot 3
+<img width="1580" height="933" alt="flowguard_settings" src="https://github.com/user-attachments/assets/a2149246-309b-4f05-b6cb-c247127abb67" />
+3. Settings Panel
+View system configuration and trigger test alerts.
+Displays live configuration values (thresholds, alert channels, and allowlisted services) and allows one-click Slack or email test alerts.
 
 ## Next steps
 
