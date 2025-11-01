@@ -1,0 +1,12 @@
+flask
+flask-cors
+SQLAlchemy
+psycopg2-binary
+python-dotenv
+celery
+redis
+pandas
+numpy
+scikit-learn
+loguru
+gunicorn
