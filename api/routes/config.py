@@ -2,7 +2,7 @@
 
 from flask import Blueprint, jsonify
 
-from ..utils.config import load_config
+from api.utils.config import load_config
 
 bp = Blueprint("config", __name__, url_prefix="/api")
 
@@ -20,4 +20,3 @@ def get_config() -> tuple[dict, int]:
         "services": config["SERVICE_ALLOWLIST"],
     }
     return jsonify(payload), 200
-

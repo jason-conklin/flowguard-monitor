@@ -8,15 +8,15 @@ from typing import Dict, Iterable, List
 from loguru import logger
 from sqlalchemy.exc import IntegrityError
 
-from ..db import session_scope
-from ..models import LogEvent, MetricPoint, Service
-from ..schemas import validate_log_batch, validate_metric_batch
-from ..services.celery_app import celery
-from ..utils.config import load_config
-from ..utils.time import utc_now
-from . import alerts as alerts_service
-from . import anomaly as anomaly_service
-from . import kpis as kpi_service
+from api.db import session_scope
+from api.models import LogEvent, MetricPoint, Service
+from api.schemas import validate_log_batch, validate_metric_batch
+from api.services.celery_app import celery
+from api.utils.config import load_config
+from api.utils.time import utc_now
+from api.services import alerts as alerts_service
+from api.services import anomaly as anomaly_service
+from api.services import kpis as kpi_service
 
 
 def _ensure_services(session, service_names: Iterable[str]) -> Dict[str, Service]:

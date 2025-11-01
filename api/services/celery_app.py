@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 from celery import Celery
+from celery.signals import worker_init, worker_process_init
 from flask import Flask
 from loguru import logger
 
-from ..utils.config import load_config
+from api.db import init_db
+from api.utils.config import load_config
 
 celery = Celery("flowguard")
 
@@ -23,8 +25,10 @@ def init_celery(app: Flask | None = None) -> Celery:
         timezone="UTC",
         enable_utc=True,
         task_track_started=True,
-        include=["services.pipeline"],
+        include=["api.services.pipeline"],
     )
+
+    init_db(load_config().DB_URL)
 
     if app is not None:
         celery.conf.update(app.config)
@@ -35,3 +39,13 @@ def init_celery(app: Flask | None = None) -> Celery:
 
 # Ensure celery is initialised on import for worker processes.
 init_celery()
+
+
+@worker_init.connect
+def setup_worker_db(**_):
+    init_db(load_config().DB_URL)
+
+
+@worker_process_init.connect
+def setup_worker_child_db(**_):
+    init_db(load_config().DB_URL)

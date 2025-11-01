@@ -32,6 +32,19 @@ DEFAULTS: Dict[str, Any] = {
 }
 
 
+class ConfigDict(dict):
+    """Dictionary with attribute-style access."""
+
+    def __getattr__(self, item: str) -> Any:
+        try:
+            return self[item]
+        except KeyError as exc:
+            raise AttributeError(item) from exc
+
+    def __setattr__(self, key: str, value: Any) -> None:
+        self[key] = value
+
+
 def _as_bool(value: str | bool | None) -> bool:
     if isinstance(value, bool):
         return value
@@ -79,10 +92,9 @@ def load_config(env_path: Path | None = None) -> Dict[str, Any]:
     cfg["SERVICE_ALLOWLIST"] = _split_csv(cfg["SERVICE_ALLOWLIST"])
     cfg["DEV_GENERATOR"] = _as_bool(cfg["DEV_GENERATOR"])
 
-    return cfg
+    return ConfigDict(cfg)
 
 
 def service_is_allowed(service: str, allowlist: Iterable[str]) -> bool:
     allow = {s.lower() for s in allowlist}
     return not allow or service.lower() in allow
-

@@ -11,8 +11,8 @@ from typing import Dict, Iterable, List, Optional
 import numpy as np
 from sqlalchemy import desc
 
-from ..models import LogEvent, MetricPoint, Service
-from ..utils.time import utc_now
+from api.models import LogEvent, MetricPoint, Service
+from api.utils.time import utc_now
 
 
 def _percentile(values: List[int], percentile: float) -> int:
@@ -117,4 +117,3 @@ def fetch_kpi_series(session, service_name: str, start: datetime, end: datetime)
         "items": items,
         "latest": latest,
     }
-

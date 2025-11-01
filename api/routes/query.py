@@ -5,10 +5,10 @@ from __future__ import annotations
 from flask import Blueprint, jsonify, request
 from sqlalchemy import and_, func
 
-from ..db import session_scope
-from ..models import AlertEvent, LogEvent, MetricPoint, Service
-from ..services.kpis import fetch_kpi_series
-from ..utils.time import parse_range
+from api.db import session_scope
+from api.models import AlertEvent, LogEvent, MetricPoint, Service
+from api.services.kpis import fetch_kpi_series
+from api.utils.time import parse_range
 
 bp = Blueprint("query", __name__, url_prefix="/api")
 
@@ -125,4 +125,3 @@ def get_alerts() -> tuple[dict, int]:
         ]
 
     return jsonify({"items": items}), 200
-

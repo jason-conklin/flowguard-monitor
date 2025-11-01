@@ -13,7 +13,7 @@ from urllib import request as urlrequest
 
 from loguru import logger
 
-from ..utils.config import load_config
+from api.utils.config import load_config
 
 
 def _iso_now() -> str:
@@ -109,4 +109,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

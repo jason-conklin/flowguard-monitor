@@ -14,8 +14,8 @@ from loguru import logger
 from sqlalchemy import and_
 from sqlalchemy.exc import IntegrityError
 
-from ..models import AlertEvent, Service
-from ..utils.time import utc_now
+from api.models import AlertEvent, Service
+from api.utils.time import utc_now
 
 
 def handle_alerts(session, service: Service, snapshot: dict, anomaly: dict, config: dict) -> List[dict]:

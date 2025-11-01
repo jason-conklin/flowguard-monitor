@@ -16,6 +16,7 @@ build/
 .env
 *.env.local
 flowguard.db
+*.db-journal
 data/
 
 # IDE / OS
@@ -23,4 +24,3 @@ data/
 Thumbs.db
 .vscode/
 .idea/
-

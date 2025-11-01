@@ -10,7 +10,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from .models import Base
+from api.models import Base
 
 _engine: Engine | None = None
 SessionLocal = scoped_session(sessionmaker(autocommit=False, autoflush=False))
@@ -40,4 +40,3 @@ def session_scope() -> Generator:
         raise
     finally:
         SessionLocal.remove()
-

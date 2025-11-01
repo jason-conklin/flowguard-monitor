@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from flask import Blueprint, current_app, jsonify, request
 
-from ..db import session_scope
-from ..services.alerts import dispatch_test_alert
+from api.db import session_scope
+from api.services.alerts import dispatch_test_alert
 
 bp = Blueprint("alerts", __name__, url_prefix="/api")
 
@@ -19,4 +19,3 @@ def test_alert() -> tuple[dict, int]:
         result = dispatch_test_alert(session, config, service_name=service)
 
     return jsonify(result), 202
-

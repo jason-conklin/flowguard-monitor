@@ -4,11 +4,13 @@ export default function Header() {
   return (
     <header className="app-header">
       <div className="branding">
-        <span className="logo-dot" />
-        <div>
-          <h1>FlowGuard</h1>
-          <p>Intelligent Log &amp; Metrics Aggregator</p>
-        </div>
+        <NavLink to="/" className="branding-link" end>
+          <img
+            src="/flowguard_logo.png"
+            alt="FlowGuard – Intelligent Log & Metrics Aggregator"
+            className="branding-logo"
+          />
+        </NavLink>
       </div>
       <nav className="nav-links">
         <NavLink to="/" end>
@@ -20,4 +22,3 @@ export default function Header() {
     </header>
   );
 }
-

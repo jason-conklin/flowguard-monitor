@@ -33,24 +33,16 @@ body {
   gap: 1rem;
 }
 
-.branding h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  letter-spacing: 0.08em;
+.branding-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
-.branding p {
-  margin: 0;
-  font-size: 0.85rem;
-  color: #94a3b8;
-}
-
-.logo-dot {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6366f1, #22d3ee);
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.8);
+.branding-logo {
+  height: 72px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -318,4 +310,3 @@ button:active {
     display: none;
   }
 }
-

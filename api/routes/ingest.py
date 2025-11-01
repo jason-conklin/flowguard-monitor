@@ -5,8 +5,8 @@ from __future__ import annotations
 from flask import Blueprint, current_app, jsonify, request
 from loguru import logger
 
-from ..schemas import LogRecord, MetricRecord, validate_log_batch, validate_metric_batch
-from ..services.pipeline import aggregate_metrics_task, parse_logs_task
+from api.schemas import LogRecord, MetricRecord, validate_log_batch, validate_metric_batch
+from api.services.pipeline import aggregate_metrics_task, parse_logs_task
 
 bp = Blueprint("ingest", __name__, url_prefix="/api")
 
@@ -89,4 +89,3 @@ def ingest_metrics() -> tuple[dict, int]:
         ),
         202,
     )
-
